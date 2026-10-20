@@ -7,6 +7,8 @@ load_dotenv()
 print(os.getenv("API_KEY"))
 
 def get_weather():
+
+   while get_weather:
     print("\n*** Get Current Weather Conditions ***\n")
     city = input("\nPlease enter a city name:\n")
 
@@ -26,9 +28,14 @@ def get_weather():
     #print(request_url)
     print(f"Aktuellen Wetter für die Stadt {data['name']}")
     print(f"Die Temperatur beträgt {data['main']['temp']}")
-    print(f"Gefühlt wie {data['main']['feels_like']} and {data['weather'][0]['description']}")
+    print(f"Gefühlt wie {data['main']['feels_like']} und {data['weather'][0]['description']}")
 
-    print("Willst du das Wetter einer anderen Stadt wissen?")
-    
-if __name__ == "__main__":
-  get_weather() 
+    input("Willst du das Wetter einer anderen Stadt wissen? J für 'J', N für 'Nein'\n")
+    if input == "J":
+       get_weather()
+
+    else:
+       break 
+
+
+get_weather()
